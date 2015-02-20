@@ -80,6 +80,16 @@ function loadGeoData(){
     map.data.addGeoJson(oGeoData)
 }
 
+function zoomChanged(){
+    var zoomLevel = map.getZoom();
+    var sMapType;
+    if(zoomLevel > 9) {
+        map.setMapTypeId('local');
+    } else {
+        map.setMapTypeId('county');
+    }
+}
+
 function initialize() {
 
 
@@ -92,13 +102,25 @@ function initialize() {
         zoomControl: true,
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.SMALL
-        },
-        styles: mapStyles
-
-
+        }//,
+        //styles: mapStyles
     };
 
     map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+    var styledMapOptions = {map: map, name: 'county'};
+    var styledMapOptionsLocal = {map: map, name: 'local'};
+
+    var sMapType = new google.maps.StyledMapType(mapStyles,styledMapOptions);
+    map.mapTypes.set('county', sMapType);
+    map.setMapTypeId('county');
+
+    var sMapTypeLocal = new google.maps.StyledMapType(mapStylesLocal,styledMapOptionsLocal);
+    map.mapTypes.set('local', sMapTypeLocal);
+
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        zoomChanged()
+    });
+
     loadGeoData()
     setYearOptions()
     polygonColors(year)

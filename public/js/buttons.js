@@ -36,9 +36,9 @@ function polygonColors(year){
         if (!oPressureData[year].hasOwnProperty(id)) {
             return {
                 fillColor: selectKeyColor("NA"),
-                fillOpacity: 0.8,
+                fillOpacity: 0.7,
                 strokeWeight: 0.5,
-                strokeOpacity: 0.8,
+                strokeOpacity: 0.7,
                 strokeColor: "black"
             }
         } else {
@@ -46,9 +46,9 @@ function polygonColors(year){
             var color = selectKeyColor(n);
             return {
                 fillColor: color,
-                fillOpacity: 0.8,
+                fillOpacity: 0.7,
                 strokeWeight: 0.5,
-                strokeOpacity: 0.8,
+                strokeOpacity: 0.7,
                 strokeColor: "black"
             }
         }
@@ -97,8 +97,9 @@ $(function () { // change from back button
 
 $(function() { //search address
     $("#findButton").click(function(){
-        findAddress()
+        findAddress(address);
     })
 
 })
+
 

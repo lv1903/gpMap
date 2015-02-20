@@ -189,3 +189,12 @@ body {
     font-size: 10px;
 }
 
+
+
+#footnote{
+    color: 	#0E1A24;
+    width: 600px;
+    font-size: 15px;
+    margin-left: 20px;
+    text-shadow: 1px 1px 1px lightsteelblue;
+}

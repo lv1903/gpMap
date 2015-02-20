@@ -27,7 +27,6 @@ function createMarker(surgery, loc, name, id){ // create a marker with a info wi
     var marker = new google.maps.Marker({position: loc, title: name});
     google.maps.event.addListener(marker, 'click', function () {
         $("#header2").html(surgery.name);
-
         string = gpDataString(surgery);
         $("#dataBox").empty();
         $("#dataBox").append(string);
@@ -81,33 +80,43 @@ function addGPMarkers(loc_Center){
 }
 
 function addMarkersToMap(markers) {
-    console.log(markers)
-    for (i = 0; i < markers.length; i++) { //add markers to map
+    for (i = 1; i < markers.length; i++) { //add markers to map
         markers[i].setMap(map);
     }
 }
 
 
+function doMarkers(loc_Center){
+    removeOldMarkers()
+    markers = addGPMarkers(loc_Center, markers);
+    addMarkersToMap(markers)
+}
+
+
 function findAddress() {
+
+    $("#header2").html("Hampshire County");
+    $("#dataBox").empty();
+    $("#dataBox").append("<br/><p class='gpDataText'>click on GP surgery marker for details...</p>")
+
 
     var geocoder = new google.maps.Geocoder();
     var address = $('#address').val();
     console.log(address)
     geocoder.geocode( {'address': address + ', hampshire, uk'}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-
-            removeOldMarkers()
-
             var loc_Center = results[0].geometry.location;
+            console.log(loc_Center)
+            doMarkers(loc_Center);
             map.setCenter(loc_Center);
             map.setZoom(13);
+            zoomChanged();
         } else {
             alert('We could not find your address for the following reason: ' + status);
         }
 
-        markers[0] = addSearchMarker(loc_Center, address);
-        markers = addGPMarkers(loc_Center, markers);
-        addMarkersToMap(markers)
+        //markers[0] = addSearchMarker(loc_Center, address);
+
 
     });
 
