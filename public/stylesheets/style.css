@@ -117,10 +117,7 @@ body {
     box-shadow:inset 2px 2px 2px black;
     text-indent: 5px;
     width: 200px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-
+    margin: 10px;
 }
 
 #findButton{
@@ -168,6 +165,27 @@ body {
     font-weight: bold;
     margin-right: 10px;
     outline:0;
+}
 
+#dataBox{
+    height: 390px;
+    width: 580px;
+    /*background-color: red;*/
+    margin: 10px;
+
+
+}
+
+.gpDataText{
+    color: darkblue;
+    margin: 10px;
+}
+
+.gpSrcText{
+    position: absolute;
+    margin: 10px;
+    bottom: 0px;
+    color: steelblue;
+    font-size: 10px;
 }
 

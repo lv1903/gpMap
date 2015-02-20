@@ -1,11 +1,36 @@
 var markers = []
 
+function gpDataString(surgery){
+
+    string = "<br/><br/>"
+                +  "<p class='gpDataText'>KEY FACTS" + "</p>"
+                +  "<p class='gpDataText'>Registered Patients: "
+                    + Math.round(surgery.registered_patients) + "</p>"
+                + "<p class='gpDataText'>User Rating: "
+                    +  surgery.nhs_choices_user_rating + "</p>"
+                + "<br/><br/>"
+
+    aAddress = surgery.address.split('\n')
+    for(i = 0; i < aAddress.length; i++){
+        string += "<p class='gpDataText'>&nbsp;&nbsp"
+                    + aAddress[i] + "</p>"
+    }
+
+    string += "<p class='gpSrcText '>data source: NHS Choices</p>";
+
+    return string;
+}
+
 
 function createMarker(surgery, loc, name, id){ // create a marker with a info window
+
     var marker = new google.maps.Marker({position: loc, title: name});
     google.maps.event.addListener(marker, 'click', function () {
-        //$("#header2").html(name)
-        console.log("here")
+        $("#header2").html(surgery.name);
+
+        string = gpDataString(surgery);
+        $("#dataBox").empty();
+        $("#dataBox").append(string);
     });
 
 
