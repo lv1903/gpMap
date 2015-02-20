@@ -1,0 +1,173 @@
+body {
+    font-family: Arial;
+    font-size: 16px;
+    background-color: #CFCFFF;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+#titlePanel {
+    background-color: lightsteelblue;
+    margin: 0;
+    height: 80px;
+    margin-top: 0px;
+    top: 0;
+}
+
+#header1 {
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+    color: #00004C;
+    text-shadow: 1px 1px 1px #C8D6E8;
+    font-size: 40px;
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 20px;
+    padding-top: 20px;
+    /*background-color: lightsteelblue;*/
+    width: 100vw;
+
+}
+
+#displayArea {
+    width: 1210px;
+    height: 500px;
+    /*background-color: blue;*/
+    z-index: 0;
+    position: relative;
+    margin: 10px;
+
+}
+
+#mapCanvas{
+    position: absolute;
+    border-radius: 1px;
+    box-shadow: 1px 1px 2px black;
+    /*margin-top: 10px;*/
+    float: left;
+    width: 600px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /*margin-left: 25%;*/
+    /*padding-top: 10px;*/
+
+    z-index: 1;
+    /*background-color: steelblue;*/
+}
+
+#keyCanvas{
+    position: absolute;
+    width: 105px;
+    height: 310px;
+    z-index: 10;
+    top: 170px;
+    left: 485px;
+
+    /*background-color: orange;*/
+    /*margin-right: 50%;*/
+}
+
+#mapKey{
+    width: 105px;
+    height: 310px;
+    /*background-color: red;*/
+    z-index: 3;
+}
+
+#infoCanvas{
+    position: absolute;
+    border-radius: 1px;
+    box-shadow: 1px 1px 2px black;
+    width: 600px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #EFF3F8;
+}
+
+#infoTitle{
+    background-color: lightsteelblue;
+    margin: 0;
+    height: 50px;
+    margin-top: 0px;
+    top: 0;
+
+}
+
+#header2 {
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+    color: #000099;
+    text-shadow: 1px 1px 1px #C8D6E8;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+#buttonPanel{
+    left: 100%;
+}
+
+#address{
+    border: none;
+    border-radius: 5px;
+    box-shadow:inset 2px 2px 2px black;
+    text-indent: 5px;
+    width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+
+#findButton{
+
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    background-color: lightsteelblue;
+    width: 40px;
+    top: 0px;
+    margin-right: 100px;
+    outline:0;
+
+
+}
+
+#backButton{
+    width: 25px;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    background-color: lightsteelblue;
+    font-weight: bold;
+    margin-right: 10px;
+    outline:0;
+}
+
+#yearList{
+    border: none;
+    border-radius: 5px;
+    box-shadow:inset 2px 2px 2px black;
+    text-indent: 5px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+#forwardButton{
+    width: 25px;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    background-color: lightsteelblue;
+    font-weight: bold;
+    margin-right: 10px;
+    outline:0;
+
+}
+
