@@ -80,13 +80,13 @@ function addKeyD3() {
         .attr("id", "keyCanvas")
         //responsive SVG needs these 2 attributes and no width and height attr
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 " + w + " " + h )
+        .attr("viewBox", "0 0 " + w + " " + (h) )
         //class to make it responsive
         .classed("svg-content-responsive", true);
 
 
-    var h = Number(svg.style("height").slice(0, -2));
-    var w = Number(svg.style("width").slice(0, -2));
+    //var h = Number(svg.style("height").slice(0, -2));
+    //var w = Number(svg.style("width").slice(0, -2));
     var rectPadding = 5;
     var keyPadding = 10;
     var boxh = (h / aKeyValues.length - rectPadding)
