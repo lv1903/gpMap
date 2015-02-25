@@ -26,10 +26,11 @@ function createMarker(surgery, loc, name, id){ // create a marker with a info wi
 
     var marker = new google.maps.Marker({position: loc, title: name});
     google.maps.event.addListener(marker, 'click', function () {
-        $("#header2").html(surgery.name);
-        string = gpDataString(surgery);
-        $("#dataBox").empty();
-        $("#dataBox").append(string);
+        //$("#mapContainer").append("<div id='infoCanvas'></div>")
+        //$("#header2").html(surgery.name);
+        //string = gpDataString(surgery);
+        //$("#dataBox").empty();
+        //$("#dataBox").append(string);
     });
 
 

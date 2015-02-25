@@ -2,23 +2,56 @@ extends layout
 
 block content
 
-    #displayArea.container
-        #mapCanvas map
-        #keyCanvas
-            canvas#mapKey(height='310', width='105') key
-        #infoCanvas
-            #infoTitle
-                h2#header2 Hampshire County
-            #buttonPanel
-                input#address(type='textbox', value='Search for GP surgeries...')
+    .navbar.navbar-default.navbar-fixed-top
+        .container
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='/', style="position:fixed;")
+                   img#brandImage(src="/images/logo.png")
+                   span#brandText GP pressure map
+            center
+                #navbar-main.navbar-collapse.collapse
+                    ul#navigate.nav.navbar-nav
+                        li
+                            a(href='/').glyphicon.glyphicon-home
+                        li
+                            a(href='#').glyphicon.glyphicon-info-sign
 
-                input#findButton(type='button' class='btn' value='GO')
 
-                input#backButton(type='button' class='btn' value='<')
-                select#yearList
-                input#forwardButton(type='button' class='btn' value='>')
+    .container#mapContainer
 
-            #dataBox
-    #footnote percentage increase in general practice consultations normalised to 2015
+        .input-group#findAddress
+            input#address.form-control(type='text', name='username', placeholder='Search')
+            span.input-group-btn
+                button#findButton.btn.btn-default.btn(type='submit').glyphicon.glyphicon-search
+
+        .input-group#findYear
+            span.input-group-btn
+                button#backButton.btn.btn-default(type='submit').glyphicon.glyphicon-minus
+            select#yearList.form-control
+            span.input-group-btn
+                button#forwardButton.btn.btn-default(type='submit').glyphicon.glyphicon-plus
+
+        .mapCanvas
+
+        //.keyCanvas
+            canvas#mapKey(height='60%', width='20%')
+            //105 310
+
+
+    //#mapCanvas
+    //    .container
+    //        .row
+    //            .col-xs-8
+    //            .col-xs-4
+//    #keyCanvas
+    //        canvas#mapKey(height='310', width='105') key
+
+    //
+    //        #dataBox
+    //#footnote percentage increase in general practice consultations normalised to 2015
 
 

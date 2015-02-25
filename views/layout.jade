@@ -2,10 +2,22 @@ doctype html
 html
     head
         title= title
+
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        link(href='/libs/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        //link(rel='shortcut icon', href='/favicon.ico')
         link(rel='stylesheet', href='/stylesheets/style.css')
+
         script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true")
         script(src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry")
         script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+
+        script(src="/js/addKey.js")
         script(src="/js/infoBox.js")
         script(src="/js/buttons.js")
         script(src="/js/maps.js")
@@ -22,7 +34,6 @@ html
 
 
     body
-        #titlePanel
-            h1#header1 GP Surgery Pressure Map
+
 
         block content

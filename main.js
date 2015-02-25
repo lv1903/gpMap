@@ -40,6 +40,7 @@ function calculatePressure(oPopData, oConsultationData){
             oPressureData[year][id] = oPressureData[year][id] / baseValue;
         }
     }
+
     return oPressureData
 }
 
