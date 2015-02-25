@@ -2,25 +2,6 @@ extends layout
 
 block content
 
-    .navbar.navbar-default.navbar-fixed-top
-        .container
-            .navbar-header
-                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand(href='/', style="position:fixed;")
-                   img#brandImage(src="/images/logo.png")
-                   span#brandText GP pressure map
-            center
-                #navbar-main.navbar-collapse.collapse
-                    ul#navigate.nav.navbar-nav
-                        li
-                            a(href='/').glyphicon.glyphicon-home
-                        li
-                            a(href='#').glyphicon.glyphicon-info-sign
-
-
     .container#mapContainer
 
         .input-group#findAddress

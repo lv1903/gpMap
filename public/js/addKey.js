@@ -1,6 +1,3 @@
-
-
-
 //var aKeyValues = ["           NA", "    < 100%", "100-105%", "105-110%", "110-120%", "120-130%", "130-150%", "    > 150%"]
 var aKeyValues = ["+150%", "+130%", "+120%", "+110%", "+105%", "+100%", "<100%",  "no data"]
 
@@ -35,36 +32,6 @@ function selectKeyColor(n){
     if(n < 1.5 && n >= 1.4){return oKeyColors["color6"]}
     if(n >= 1.5){return oKeyColors["color7"]};
 }
-
-function addKey() {
-    var c = document.getElementById('mapKey');
-
-    var ctx = c.getContext("2d");
-
-    var boxH = 30;
-    var boxW = 105;
-
-    ctx.fillStyle = "white";
-    for (i = 0; i < aKeyValues.length; i++) {
-        ctx.fillRect(0, (i * (10 + boxH)), boxW, boxH);
-    }
-
-    ctx.font = "bold 15px  Arial";
-    ctx.fillStyle = "black";
-    for (i = 0; i < aKeyValues.length; i++) {
-        var title = aKeyValues[aKeyValues.length - i - 1];
-        ctx.fillText(title, 5, 20 + (i * (10 + boxH)));
-    }
-
-    for (i = 0; i < aKeyValues.length; i++) {
-        var number = aKeyValues.length - i - 1
-        var name = "color" + number
-        ctx.fillStyle = oKeyColors[name];
-        ctx.fillRect(80, (i * (10 + boxH)) + 5, boxH - 10, boxH - 10);
-    }
-}
-
-
 
 function addKeyD3() {
 

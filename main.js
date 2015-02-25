@@ -40,9 +40,14 @@ function calculatePressure(oPopData, oConsultationData){
             oPressureData[year][id] = oPressureData[year][id] / baseValue;
         }
     }
-
     return oPressureData
 }
+
+
+app.get('/references', function(req, res){
+    res.render('references');
+})
+
 
 app.get("/:year/", function(req, res){
     var year = req.params["year"];
