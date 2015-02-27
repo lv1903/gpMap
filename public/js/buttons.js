@@ -124,12 +124,16 @@ $(function() { //search address
 
 $(function() { //search address
     $("#gpButton").click(function(){
-        showMarkers();
+        if(gpFlag == false) {
+            showMarkers();
+            gpFlag = true;
+        }
     })
 })
 
 $(function() { //search address
     $("#hideButton").click(function(){
         hideMarkers();
+        gpFlag = false;
     })
 })

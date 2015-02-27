@@ -54,6 +54,13 @@ app.get("/:year/", function(req, res){
     res.json(oPressureData[year]);
 });
 
+//
+//app.get("/:id/:year/", function(req, res){
+//    var id = req.params["id"];
+//    var year = req.params["year"];
+//    res.json(oPopData[id][year]);
+//});
+
 
 app.get('/', function(req, res){
     res.render('index', {

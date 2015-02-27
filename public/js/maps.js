@@ -2,6 +2,7 @@ var geocoder;
 var map;
 var markers = [];
 var markerCluster;
+var gpFlag = false;
 var polygons = {};
 var aYears = ["2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"]
 var maxVisits = 1.5;
@@ -63,6 +64,10 @@ function initialize() {
     google.maps.event.addListener(map, 'zoom_changed', function() {
         zoomChanged()
     });
+
+    //map.data.addListener('click', function(event) {
+    //    featureClick(event)
+    //});
 
     loadGeoData()
     setYearOptions()

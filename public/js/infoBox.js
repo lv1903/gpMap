@@ -2,23 +2,23 @@
 
 function gpDataString(surgery){
 
-    string =    "<div>"
-                +"<h1>" + surgery.name + "</h1>"
-                + "<br/><br/>"
-                +  "<p>KEY FACTS" + "</p>"
-                +  "<p>Registered Patients: "
+    string =    "<div id='gpText'>"
+                +"<h3 id='gpH1Text'>" + surgery.name + "</h1>"
+                + "<br/>"
+                +  "<p class='gpP'>KEY FACTS" + "</p>"
+                +  "<p class='gpP'>Registered Patients: "
                     + Math.round(surgery.registered_patients) + "</p>"
-                + "<p>User Rating: "
+                + "<p class='gpP'>User Rating: "
                     +  surgery.nhs_choices_user_rating + "</p>"
-                + "<br/><br/>"
+                + "<br/>"
 
     aAddress = surgery.address.split('\n')
     for(i = 0; i < aAddress.length; i++){
-        string += "<p>&nbsp;&nbsp"
+        string += "<p class='gpP'>&nbsp;&nbsp"
                     + aAddress[i] + "</p>"
     }
 
-    string += "<br/><br/><p>attribution: NHS Choices</p></div>";
+    string += "<br/><p class='gpP'>attribution: NHS Choices</p></div>";
 
     return string;
 }
@@ -124,4 +124,32 @@ function findAddress() {
             alert('We could not find your address for the following reason: ' + status);
         }
     });
+}
+
+
+function getPopDataIdYear(id, year){
+    $.ajax("/" + id + "/" + year).done(function (oPopDataIdYear) {
+        oPopData[id][year] = oPopDataIdYear
+        console.log( oPopDataIdYear)
+        //console.log(oPopData[id][year])
+    });
+}
+
+function featureClick(event){
+
+    //console.log(oPopData)
+
+    var id = event.feature.getProperty('LSOA01CD');
+    var year = $("#yearList").val();
+
+    if (oPopData.hasOwnProperty(id)){
+        if(oPopData[id].hasOwnProperty(year)){
+            console.log(oPopData[id][year])
+        } else {
+            oPopData[id][year] = getPopDataIdYear(id, year)
+        }
+    } else {
+        oPopData[id] = id
+        oPopData[id][year] = getPopDataIdYear(id, year)
+    }
 }
