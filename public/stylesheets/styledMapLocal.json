@@ -8,11 +8,7 @@
   "featureType": "administrative",
   "elementType": "labels.text",
   "stylers": [
-    { "visibility": "simplified" },
-    { "saturation": 100 },
-    { "color": "#000000" },
-    { "weight": 8 },
-    { "lightness": -100 }
+    { "visibility": "simplified" }
   ]
 },{
   "featureType": "poi",
@@ -69,17 +65,7 @@
 },{
   "featureType": "landscape",
   "stylers": [
-    { "color": "#00ff00" },
-    { "saturation": 50 },
-    { "lightness": 50 }
+    { "color": "white" }
   ]
-},{
-  "featureType": "water",
-  "stylers": [
-    { "color": "#0000ff" },
-    { "saturation": 80 },
-    {"lightness": 20}
-  ]
-},{
 }
 ]

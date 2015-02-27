@@ -20,20 +20,15 @@ function setButtonColors(year){
 }
 
 
-function polygonColors(year){
-
-    if(!(oPressureData.hasOwnProperty(year))) {
-        $.ajax("/" + year).done(function (oPressureDataYear) {
-            oPressureData[year] = oPressureDataYear;
-        });
-    };
+function addPolygonColors(oPressureDataYear){
 
     map.data.setStyle(function(feature) {
         var id = feature.getProperty('LSOA01CD');
+
         if(typeof id != "string"){
             var id = feature.getProperty('LSOA11CD');
         }
-        if (!oPressureData[year].hasOwnProperty(id)) {
+        if (!oPressureDataYear.hasOwnProperty(id)) {
             return {
                 fillColor: selectKeyColor("NA"),
                 fillOpacity: 0.7,
@@ -42,7 +37,7 @@ function polygonColors(year){
                 strokeColor: "black"
             }
         } else {
-            var n = oPressureData[year][id];
+            var n = oPressureDataYear[id];
             var color = selectKeyColor(n);
             return {
                 fillColor: color,
@@ -53,6 +48,23 @@ function polygonColors(year){
             }
         }
     })
+
+}
+
+
+
+function polygonColors(year){
+    $('.loading').show();
+    if(oPressureData.hasOwnProperty(year)) {
+        addPolygonColors((oPressureData[year]))
+        $('.loading').hide();
+    } else {
+        $.ajax("/" + year).done(function (oPressureDataYear) {
+            oPressureData[year] = oPressureDataYear;
+            addPolygonColors((oPressureData[year]))
+            $('.loading').hide();
+        });
+    };
 }
 
 
@@ -97,9 +109,27 @@ $(function () { // change from back button
 
 $(function() { //search address
     $("#findButton").click(function(){
-        findAddress(address);
+        findAddress();
     })
+})
 
+$(function() { //search address
+    $("#address").keydown(function () {
+        if (event.keyCode == 13) {
+            findAddress();
+        }
+    });
 })
 
 
+$(function() { //search address
+    $("#gpButton").click(function(){
+        showMarkers();
+    })
+})
+
+$(function() { //search address
+    $("#hideButton").click(function(){
+        hideMarkers();
+    })
+})

@@ -29,8 +29,9 @@ function selectKeyColor(n){
     if(n < 1.1 && n >= 1.05){return oKeyColors["color3"]};
     if(n < 1.2 && n >= 1.1){return oKeyColors["color4"]};
     if(n < 1.3 && n >= 1.2){return oKeyColors["color5"]};
-    if(n < 1.5 && n >= 1.4){return oKeyColors["color6"]}
+    if(n < 1.5 && n >= 1.3){return oKeyColors["color6"]}
     if(n >= 1.5){return oKeyColors["color7"]};
+    console.log("here " +  n)
 }
 
 function addKeyD3() {
@@ -56,7 +57,7 @@ function addKeyD3() {
     //var w = Number(svg.style("width").slice(0, -2));
     var rectPadding = 5;
     var keyPadding = 10;
-    var boxh = (h / aKeyValues.length - rectPadding)
+    var boxh = (h / aKeyValues.length - rectPadding - 2)
 
 
     svg.selectAll("rect")
@@ -88,7 +89,6 @@ function addKeyD3() {
         .attr("r", r)
         .attr("fill", function(d, i){
             name = "color" + (aKeyValues.length - i - 1)
-            console.log(name)
             return oKeyColors[name]
         })
         .attr("opacity", "0.7")
