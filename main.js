@@ -49,17 +49,15 @@ app.get('/references', function(req, res){
 })
 
 
-app.get("/:year/", function(req, res){
+app.get("/pressure_data/:year/", function(req, res){
     var year = req.params["year"];
     res.json(oPressureData[year]);
 });
 
-//
-//app.get("/:id/:year/", function(req, res){
-//    var id = req.params["id"];
-//    var year = req.params["year"];
-//    res.json(oPopData[id][year]);
-//});
+app.get("/pop_data/:id/", function(req, res){
+    var id = req.params["id"];
+    res.json(oPopData[id]);
+});
 
 
 app.get('/', function(req, res){
@@ -70,6 +68,7 @@ app.get('/', function(req, res){
                         , mapStyleLocal: aMapStylesLocal
                         , geoData: oGeoLSOA
                         , pressureData: oPressureData[homeYear]
+                        , consultationData: oConsultationData
                         , gpSurgeryData: oGPsData
                         }
     );

@@ -44,6 +44,7 @@ function addKeyD3() {
     var svg = d3.select("#mapContainer")
         .append("div")
         .classed("svg-container", true) //container class to make it responsive
+        .attr("id", "keyContainer")
         .append("svg")
         .attr("id", "keyCanvas")
         //responsive SVG needs these 2 attributes and no width and height attr
@@ -109,4 +110,6 @@ function addKeyD3() {
         .attr("font-family", "Arial")
         .attr("font-size", fontSize + "px")
         .attr("fill", "darkslategrey");
+
+
 }

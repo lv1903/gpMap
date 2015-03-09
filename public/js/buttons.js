@@ -9,13 +9,13 @@ function findYearIndex(){
 
 function setButtonColors(year){
     var i = findYearIndex()
-    $("#backButton").css("color", "black");
-    $("#forwardButton").css("color", "black");
+    $(".backButton").css("color", "black");
+    $(".forwardButton").css("color", "black");
     if( i == aYears.length - 1) {
-        $("#forwardButton").css("color", "lightgrey");
+        $(".forwardButton").css("color", "lightgrey");
     }
     if( i == 0) {
-        $("#backButton").css("color", "lightgrey");
+        $(".backButton").css("color", "lightgrey");
     }
 }
 
@@ -59,7 +59,7 @@ function polygonColors(year){
         addPolygonColors((oPressureData[year]))
         $('.loading').hide();
     } else {
-        $.ajax("/" + year).done(function (oPressureDataYear) {
+        $.ajax("/pressure_data/" + year).done(function (oPressureDataYear) {
             oPressureData[year] = oPressureDataYear;
             addPolygonColors((oPressureData[year]))
             $('.loading').hide();
@@ -77,8 +77,10 @@ $(function () { //change year from list
 });
 
 
+
+
 $(function () {
-    $("#forwardButton").click(function(){ //change from forward button
+    $(".forwardButton").click(function(){ //change from forward button
         var i = findYearIndex()
         if( i == aYears.length - 1) {
             var year = aYears[i]
@@ -86,14 +88,15 @@ $(function () {
             var year = aYears[i + 1];
             $("#yearList").val(year);
         }
-        setButtonColors(year)
-        polygonColors(year)
+        updateModal(year);
+        setButtonColors(year);
+        polygonColors(year);
     })
 })
 
 
 $(function () { // change from back button
-    $("#backButton").click(function(){
+    $(".backButton").click(function(){
         var i = findYearIndex()
         if( i == 0) {
             var year = aYears[0]
@@ -101,11 +104,23 @@ $(function () { // change from back button
             var year = aYears[i - 1];
             $("#yearList").val(year);
         }
-        setButtonColors(year)
-        polygonColors(year)
+        updateModal(year);
+        setButtonColors(year);
+        polygonColors(year);
     })
 })
 
+function updateModal(year) {
+
+    if($(".featureInfo").hasClass('in') ) {
+        $("#featureTitle").html(" Who will be visiting the doctor in " + year);
+        var id = $(".modal-header").attr("id");
+        //console.log(oPopData);
+        loadFeatureInfoBox(oPopData[id]);
+
+    }
+
+}
 
 $(function() { //search address
     $("#findButton").click(function(){

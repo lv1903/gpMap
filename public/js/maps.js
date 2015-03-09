@@ -65,9 +65,9 @@ function initialize() {
         zoomChanged()
     });
 
-    //map.data.addListener('click', function(event) {
-    //    featureClick(event)
-    //});
+    map.data.addListener('click', function(event) {
+        featureClick(event)
+    });
 
     loadGeoData()
     setYearOptions()

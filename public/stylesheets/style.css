@@ -13,7 +13,7 @@ body {
 
 #brandText{
      position: absolute;
-     width: 160px;
+     width: 250px;
      margin-left: 12.5px;
      top: 0px;
      margin-top: 16.5px;
@@ -62,13 +62,18 @@ body {
     padding: 10px 0px 10px 0px;
 }
 
+#modalYear{
+    text-align: center;
+
+}
+
 #showGP{
     z-index: 11;
     width: 150px;
 
 }
 
-#findYear{
+.findYear{
     z-index: 11;
     width: 150px;
 }
@@ -94,8 +99,8 @@ body {
     /*background-color: red;*/
 }
 
-.svg-container {
-    display: inline-block;
+#keyContainer {
+    /*display: inline-block;*/
     position: relative;
     width: 10%;
     padding-bottom: 30%; /* aspect ratio */
@@ -113,15 +118,15 @@ body {
 
 
 
-#infoCanvas{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    z-index: 10;
-    bottom: 20px;
-    right: 100px;
-    background-color: orange;
-}
+/*#infoCanvas{*/
+    /*position: absolute;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+    /*z-index: 10;*/
+    /*bottom: 20px;*/
+    /*right: 100px;*/
+    /*background-color: orange;*/
+/*}*/
 
 #referenceContainer{
     padding: 50px 20px 10px 20px;
